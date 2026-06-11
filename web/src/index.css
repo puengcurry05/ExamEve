@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #F6F7FB;
+  color: #11181C;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* iOS 앱처럼 모바일 폭(최대 480px) 중앙 정렬 셸 */
+@layer components {
+  .card {
+    @apply bg-white rounded-card shadow-card;
+  }
+  .tag-chip {
+    @apply inline-flex items-center text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+  .input-field {
+    @apply w-full px-3.5 py-3 bg-white rounded-xl border border-black/10
+           outline-none focus:border-primary focus:ring-1 focus:ring-primary/30
+           transition placeholder:text-gray-400;
+  }
+}
+
+/* 스크롤바 숨김 (탭 바 등) */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 카드 뒤집기 3D */
+.flip-card { perspective: 1600px; }
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.flip-inner.flipped { transform: rotateY(180deg); }
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back { transform: rotateY(180deg); }
