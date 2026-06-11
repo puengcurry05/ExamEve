@@ -30,7 +30,7 @@ targets:
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
         ITSAppUsesNonExemptEncryption: false
-        SupabaseURL: $(SUPABASE_URL)
+        SupabaseHost: $(SUPABASE_HOST)
         SupabaseKey: $(SUPABASE_KEY)
     settings:
       base:
